@@ -1,0 +1,34 @@
+
+.video_section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .video_container {
+    height: 200px;
+    width: 350px;
+    position: relative;
+
+    .square {
+      height: 200px;
+      width: 350px;
+      background: pink;
+    }
+  }
+
+  .video_details {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: capitalize;
+      margin: 0;
+    }
+
+    .button_details {
+      font-size: 12px;
+    }
+  }
+}

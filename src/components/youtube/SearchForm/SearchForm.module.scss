@@ -1,0 +1,13 @@
+
+.searchForm {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-top: 20px;
+
+  span {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+  }
+}

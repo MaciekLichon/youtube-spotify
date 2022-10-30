@@ -1,0 +1,24 @@
+
+.profile_data {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 70px;
+  flex-direction: row-reverse;
+
+  .profile_img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+  }
+
+  .name, .followers {
+    margin: 0;
+    text-align: right;
+  }
+
+  .followers {
+    font-size: 12px;
+  }
+}

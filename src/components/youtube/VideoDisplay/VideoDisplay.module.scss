@@ -1,0 +1,37 @@
+
+.video_section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .video_container {
+    height: 200px;
+    width: 350px;
+    position: relative;
+
+    iframe {
+      height: 200px;
+      width: 350px;
+    }
+  }
+
+  .video_details {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      width: 350px;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: capitalize;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 0;
+    }
+
+    .button_details {
+      font-size: 12px;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@import '../../../styles/settings.scss';
+
+.button {
+  border: 0;
+  color: $color-light;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.5s;
+
+  &.youtube {
+    background: darken($color-youtube, 10%);
+
+    &:hover {
+      background: $color-youtube;
+    }
+  }
+
+  &.spotify {
+    background: darken($color-spotify, 10%);
+
+    &:hover {
+      background: $color-spotify;
+    }
+  }
+
+}

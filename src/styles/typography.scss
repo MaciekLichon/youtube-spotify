@@ -1,0 +1,13 @@
+@import './settings.scss';
+@import url('https://fonts.googleapis.com/css?family=Nunito:200,300,400,500,600,700,800,900,1000');
+
+$font-text: 'Nunito', sans-serif;
+
+$base-weight: 400;
+
+$base-size: 16px;
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: $base-weight;
+}

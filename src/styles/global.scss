@@ -1,0 +1,19 @@
+@import './settings.scss';
+@import './typography.scss';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: $color-background;
+  font-family: $font-text;
+  font-size: $base-size;
+  font-weight: $base-weight;
+  color: $color-dark;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
