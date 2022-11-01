@@ -1,7 +1,46 @@
+@import '../../../styles/settings.scss';
 
-.options {
+nav {
   margin-top: 50px;
   margin-bottom: 20px;
-  display: flex;
-  gap: 40px;
+
+  .options {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+
+    .nav_button {
+      text-decoration: none;
+      color: $color-dark;
+      position: relative;
+      z-index: 1;
+      transition: 0.3s;
+      width: 55px;
+      text-align: center;
+    }
+
+    .nav_button::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 120%;
+      height: 120%;
+      background: $color-dark;
+      border-radius: 10px;
+      z-index: -1;
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .nav_button:hover::after {
+      opacity: 1;
+    }
+
+    .nav_button:hover {
+      color: $color-light;
+    }
+
+  }
 }

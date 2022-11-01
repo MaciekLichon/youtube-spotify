@@ -1,6 +1,8 @@
 import Carousel from 'react-bootstrap/Carousel';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateCurrentTitle } from '../../../redux/currentTitleRedux';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -12,6 +14,12 @@ import './customCarousel.scss';
 const VideoDisplay = ({ data }) => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const currentTitle = data[currentIndex].snippet.title;
+    dispatch(updateCurrentTitle(currentTitle));
+  }, [currentIndex, data]);
 
   const handleSelect = (selectedIndex, e) => {
     setCurrentIndex(selectedIndex);
@@ -38,7 +46,6 @@ const VideoDisplay = ({ data }) => {
 
       <div className={styles.video_details}>
         <p className={styles.title}>{data[currentIndex].snippet.title}</p>
-        <a href="" className={styles.button_details}>More details</a>
       </div>
 
     </section>

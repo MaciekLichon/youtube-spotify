@@ -6,10 +6,11 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { updateSpotifyToken } from '../../../redux/spotifyTokenRedux';
-import { updateSpotifyUser } from '../../../redux/spotifyUserRedux';
+import { updateSpotifyUser, fetchUserData } from '../../../redux/spotifyUserRedux';
+import { updateSpotifyPlaylists, fetchPlaylists } from '../../../redux/spotifyPlaylistsRedux';
 
 
-const Auth = ({ token, setToken, setUserData }) => {
+const Auth = ({ token, setToken, setUserData, setUserPlaylists }) => {
 
   const dispatch = useDispatch();
 
@@ -17,7 +18,7 @@ const Auth = ({ token, setToken, setUserData }) => {
   const REDIRECT_URI = 'http://localhost:3000/';
   const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
   const RESPONSE_TYPE = 'token';
-  const SCOPES = 'playlist-modify-private playlist-modify-public';
+  const SCOPES = 'playlist-modify-private playlist-modify-public playlist-read-private playlist-read-collaborative';
   const SHOW_DIALOG = 'true'
   const link = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPES}&show_dialog=${SHOW_DIALOG}`;
 
@@ -28,19 +29,25 @@ const Auth = ({ token, setToken, setUserData }) => {
 
     if (!token && hash) {
       let urlParams = new URLSearchParams(hash.replace('#', '?'));
-      setToken(urlParams.get('access_token'));
-      dispatch(updateSpotifyToken(urlParams.get('access_token')));
-      console.log(urlParams.get('access_token'));
+      let newToken = urlParams.get('access_token');
+      // console.log(newToken);
 
-      // window.location.hash = '';
+      setToken(newToken);
+      dispatch(updateSpotifyToken(newToken));
+      dispatch(fetchUserData(newToken, setUserData));
+      dispatch(fetchPlaylists(newToken, setUserPlaylists));
+
+      window.location.hash = '';
     }
   }, []);
 
   const logout = () => {
     setToken('');
     setUserData(null);
+    setUserPlaylists([]);
     dispatch(updateSpotifyToken(''));
     dispatch(updateSpotifyUser(null));
+    dispatch(updateSpotifyPlaylists([]));
   }
 
   const login = () => {
@@ -50,8 +57,8 @@ const Auth = ({ token, setToken, setUserData }) => {
 
   return (
     <div className={styles.auth}>
-      {!token && <Button action={login} type='spotify'>spotify login</Button>}
-      {token && <Button action={logout} type='spotify'>spotify logout</Button>}
+      {!token && <Button action={login} type='spotify'>spotify log in</Button>}
+      {token && <Button action={logout} type='spotify'>spotify log out</Button>}
     </div>
   );
 };

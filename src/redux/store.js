@@ -5,13 +5,17 @@ import initialState from './initialState';
 import youtubeReducer from './youtubeRedux';
 import spotifyTokenReducer from './spotifyTokenRedux';
 import spotifyUserReducer from './spotifyUserRedux';
+import spotifyPlaylistsReducer from './spotifyPlaylistsRedux';
+import currentTitleReducer from './currentTitleRedux';
 
 
 // reducer
 const subreducers = {
   youtube: youtubeReducer,
+  currentTitle: currentTitleReducer,
   spotifyToken: spotifyTokenReducer,
   spotifyUser: spotifyUserReducer,
+  spotifyPlaylists: spotifyPlaylistsReducer,
 }
 
 const reducer = combineReducers(subreducers);

@@ -4,9 +4,9 @@ const NavBar = () => {
   return (
     <nav>
       <div className={styles.options}>
-        <p>Home</p>
-        <p>Details</p>
-        <p>More</p>
+        <a href="" className={styles.nav_button}>Home</a>
+        <a href="" className={styles.nav_button}>Details</a>
+        <a href="" className={styles.nav_button}>Guide</a>
       </div>
     </nav>
   );
