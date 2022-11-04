@@ -1,22 +1,33 @@
 import styles from './Playlists.module.scss';
 
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchPlaylists } from '../../../redux/spotifyPlaylistsRedux';
+import { useEffect } from 'react';
 
-const Playlists = ({ userPlaylists }) => {
+import Form from 'react-bootstrap/Form';
+
+const Playlists = ({ userPlaylists, setCurrentPlaylist }) => {
+
+
+  useEffect(() => {
+    setCurrentPlaylist(userPlaylists[0].id);
+    console.log(userPlaylists[0].id);
+  }, []);
+
+  const handleChange = e => {
+    setCurrentPlaylist(e.target.value);
+    console.log(e.target.value);
+  }
 
   return (
-    <form className={styles.playlists}>
-      <p className={styles.title}>Select a playlist</p>
-      <select className={styles.menu}>
+    <Form.Group className={styles.playlists}>
+      <Form.Label className={styles.title}>Playlist: </Form.Label>
+      <Form.Select className={styles.menu} onChange={handleChange}>
         {userPlaylists.map(item => (
           <option key={item.id} className={styles.item} value={item.id}>
             {item.name}
           </option>
         ))}
-      </select>
-    </form>
+      </Form.Select>
+    </Form.Group>
   );
 };
 

@@ -1,7 +1,6 @@
 
 .spotify_search {
   display: flex;
-  margin-top: 10px;
   flex-direction: column;
   text-align: right;
   align-items: flex-end;
@@ -9,7 +8,7 @@
   .selector {
     display: flex;
     width: 230px;
-    height: 85px;
+    height: 80px;
     gap: 10px;
     align-items: center;
     justify-content: flex-end;

@@ -7,6 +7,7 @@ import spotifyTokenReducer from './spotifyTokenRedux';
 import spotifyUserReducer from './spotifyUserRedux';
 import spotifyPlaylistsReducer from './spotifyPlaylistsRedux';
 import currentTitleReducer from './currentTitleRedux';
+import spotifyTracksReducer from './spotifyTracksRedux';
 
 
 // reducer
@@ -16,6 +17,7 @@ const subreducers = {
   spotifyToken: spotifyTokenReducer,
   spotifyUser: spotifyUserReducer,
   spotifyPlaylists: spotifyPlaylistsReducer,
+  spotifyTracks: spotifyTracksReducer,
 }
 
 const reducer = combineReducers(subreducers);

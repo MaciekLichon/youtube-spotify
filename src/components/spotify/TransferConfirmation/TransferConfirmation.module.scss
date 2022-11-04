@@ -1,0 +1,11 @@
+
+.confirmation_container {
+  text-align: right;
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+
+  .confirmation_button {
+    width: 290px;
+  }
+}

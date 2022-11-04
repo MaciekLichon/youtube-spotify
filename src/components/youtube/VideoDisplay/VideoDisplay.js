@@ -10,6 +10,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import styles from './VideoDisplay.module.scss';
 import './customCarousel.scss';
 
+import { decode } from '../../../utils/decodeHTML';
+
 
 const VideoDisplay = ({ data }) => {
 
@@ -45,7 +47,7 @@ const VideoDisplay = ({ data }) => {
       </div>
 
       <div className={styles.video_details}>
-        <p className={styles.title}>{data[currentIndex].snippet.title}</p>
+        <p className={styles.title}>{decode(data[currentIndex].snippet.title)}</p>
       </div>
 
     </section>

@@ -1,0 +1,10 @@
+
+.track_player {
+  display: flex;
+  justify-content: flex-end;
+
+  iframe {
+    width: 250px;
+    height: 80px;
+  }
+}

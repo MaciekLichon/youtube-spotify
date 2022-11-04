@@ -1,6 +1,7 @@
 
 // selectors
 export const getSpotifyPlaylists = state => state.spotifyPlaylists;
+export const getSpotifyPlaylistById = ({ spotifyPlaylists }, playlistId) => spotifyPlaylists.find(playlist => playlist.id === playlistId);
 
 // actions
 const createActionName = actionName => `app/spotifyPlaylists/${actionName}`;

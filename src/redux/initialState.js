@@ -4,6 +4,7 @@ const initialState = {
   spotifyToken: '',
   spotifyUser: {},
   spotifyPlaylists: [],
+  spotifyTracks: [],
 };
 
 export default initialState;
