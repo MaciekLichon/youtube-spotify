@@ -32,8 +32,8 @@ const TransferConfirmation = ({ currentPlaylist, tracksData, token }) => {
   return (
     <div className={styles.confirmation_container}>
       <div className={styles.confirmation_button}>
-        <Button action={saveTrack}>
-          Add "{tracksData.name}" to "{playlistData.name}"
+        <Button action={saveTrack} type="confirmation">
+          Save it!
         </Button>
       </div>
     </div>

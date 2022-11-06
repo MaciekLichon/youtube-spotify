@@ -8,3 +8,9 @@
     width: 150px;
   }
 }
+
+@media (max-width: 900px) {
+  .auth {
+    left: 0;
+  }
+}

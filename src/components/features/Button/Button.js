@@ -7,7 +7,8 @@ const Button = props => {
     <button onClick={props.action} className={clsx(
         styles.button,
         props.type === "youtube" && styles.youtube,
-        props.type === "spotify" && styles.spotify)
+        props.type === "spotify" && styles.spotify,
+        props.type === "confirmation" && styles.confirmation)
     }>
       {props.children}
     </button>

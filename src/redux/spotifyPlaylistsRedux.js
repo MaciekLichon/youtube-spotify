@@ -22,7 +22,7 @@ export const fetchPlaylists = (token, updateSpotifyPlaylistsState) => {
       .then(data => {
         dispatch(updateSpotifyPlaylists(data.items));
         updateSpotifyPlaylistsState(data.items);
-        console.log(data.items);
+        // console.log(data.items);
       })
   }
 };

@@ -3,3 +3,9 @@
   position: relative;
   width: 350px;
 }
+
+@media (max-width: 460px) {
+  .right_side {
+    width: 300px;
+  }
+}

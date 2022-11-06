@@ -9,12 +9,12 @@ const Playlists = ({ userPlaylists, setCurrentPlaylist }) => {
 
   useEffect(() => {
     setCurrentPlaylist(userPlaylists[0].id);
-    console.log(userPlaylists[0].id);
+    // console.log(userPlaylists[0].id);
   }, []);
 
   const handleChange = e => {
     setCurrentPlaylist(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   }
 
   return (

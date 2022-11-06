@@ -8,3 +8,9 @@
     height: 80px;
   }
 }
+
+@media (max-width: 900px) {
+  .track_player {
+    justify-content: flex-start;
+  }
+}

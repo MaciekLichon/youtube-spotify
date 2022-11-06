@@ -21,7 +21,7 @@ export const fetchUserData = (token, updateUserDataState) => {
       .then(data => {
         dispatch(updateSpotifyUser(data));
         updateUserDataState(data);
-        console.log(data);
+        // console.log(data);
       })
   }
 };

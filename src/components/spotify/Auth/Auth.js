@@ -6,11 +6,12 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { updateSpotifyToken } from '../../../redux/spotifyTokenRedux';
+import { updateSpotifyTracks } from '../../../redux/spotifyTracksRedux';
 import { updateSpotifyUser, fetchUserData } from '../../../redux/spotifyUserRedux';
 import { updateSpotifyPlaylists, fetchPlaylists } from '../../../redux/spotifyPlaylistsRedux';
 
 
-const Auth = ({ token, setToken, setUserData, setUserPlaylists }) => {
+const Auth = ({ token, setToken, setUserData, setUserPlaylists, setCurrentPlaylist, setTracksData }) => {
 
   const dispatch = useDispatch();
 
@@ -22,7 +23,6 @@ const Auth = ({ token, setToken, setUserData, setUserPlaylists }) => {
   const SHOW_DIALOG = 'true'
   const link = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPES}&show_dialog=${SHOW_DIALOG}`;
 
-  console.log('auth');
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -42,12 +42,16 @@ const Auth = ({ token, setToken, setUserData, setUserPlaylists }) => {
   }, []);
 
   const logout = () => {
-    setToken('');
+    setToken(null);
     setUserData(null);
-    setUserPlaylists([]);
-    dispatch(updateSpotifyToken(''));
+    setUserPlaylists(null);
+    setCurrentPlaylist(null);
+    setTracksData(null);
+
+    dispatch(updateSpotifyToken(null));
     dispatch(updateSpotifyUser(null));
-    dispatch(updateSpotifyPlaylists([]));
+    dispatch(updateSpotifyPlaylists(null));
+    dispatch(updateSpotifyTracks(null));
   }
 
   const login = () => {

@@ -11,3 +11,9 @@
     height: 30px;
   }
 }
+
+@media (max-width: 900px) {
+  .searchForm {
+    justify-content: flex-end;
+  }
+}

@@ -8,11 +8,22 @@
   gap: 5px;
 
   .title {
-    font-size: 16px;
+    font-size: 14px;
     margin: 0;
   }
 
   .menu {
-    max-width: 220px;
+    max-width: 160px;
+  }
+}
+
+@media (max-width: 900px) {
+  .playlists {
+    text-align: left;
+    justify-content: flex-start;
+
+    .menu {
+      max-width: 195px;
+    }
   }
 }

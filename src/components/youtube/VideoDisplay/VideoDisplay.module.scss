@@ -30,3 +30,33 @@
     }
   }
 }
+
+@media (max-width: 900px) {
+  .title {
+    text-align: right;
+  }
+}
+
+@media (max-width: 460px) {
+  .video_section {
+
+    .video_container {
+      height: 200px;
+      width: 300px;
+
+      iframe {
+        height: 200px;
+        width: 300px;
+      }
+    }
+
+    .video_details {
+      display: flex;
+      flex-direction: column;
+
+      .title {
+        width: 300px;
+      }
+    }
+  }
+}

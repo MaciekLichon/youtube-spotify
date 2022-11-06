@@ -22,3 +22,19 @@
     font-size: 12px;
   }
 }
+
+@media (max-width: 900px) {
+  .profile_data {
+    flex-direction: row;
+    gap: 10px;
+
+    .profile_img {
+      margin-left: 0;
+    }
+
+    .name, .followers {
+      margin: 0;
+      text-align: left;
+    }
+  }
+}

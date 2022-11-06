@@ -1,9 +1,10 @@
 import styles from './SpotifySection.module.scss';
 
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { fetchUserData } from '../../../redux/spotifyUserRedux';
 import { fetchPlaylists } from '../../../redux/spotifyPlaylistsRedux';
+import { getCurrentTitle } from '../../../redux/currentTitleRedux';
 
 import Auth from '../../spotify/Auth/Auth';
 import Profile from '../../spotify/Profile/Profile';
@@ -16,22 +17,21 @@ import TransferConfirmation from '../../spotify/TransferConfirmation/TransferCon
 
 const SpotifySection = () => {
 
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState();
   const [userData, setUserData] = useState();
   const [userPlaylists, setUserPlaylists] = useState();
   const [tracksData, setTracksData] = useState();
   const [currentPlaylist, setCurrentPlaylist] = useState();
 
-  const dispatch = useDispatch();
-
+  const titleToFind = useSelector(getCurrentTitle);
 
   return (
     <>
-      <Auth token={token} setToken={setToken} setUserData={setUserData} setUserPlaylists={setUserPlaylists} />
+      <Auth token={token} setToken={setToken} setUserData={setUserData} setUserPlaylists={setUserPlaylists} setCurrentPlaylist={setCurrentPlaylist} setTracksData={setTracksData} />
       {userData && <Profile userData={userData} />}
-      <Search token={token} setTracksData={setTracksData} />
-      {tracksData && <TrackPlayer tracksData={tracksData} />}
       {userPlaylists && <Playlists userPlaylists={userPlaylists} setCurrentPlaylist={setCurrentPlaylist} />}
+      {(userData && titleToFind) && <Search token={token} setTracksData={setTracksData} titleToFind={titleToFind} />}
+      {tracksData && <TrackPlayer tracksData={tracksData} />}
       {tracksData && <TransferConfirmation currentPlaylist={currentPlaylist} tracksData={tracksData} token={token} />}
     </>
   );

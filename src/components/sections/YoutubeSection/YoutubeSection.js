@@ -12,14 +12,8 @@ import { getAllVideos } from '../../../redux/youtubeRedux';
 
 const YoutubeSection = ({ activePage }) => {
 
-  // const [videoList, setVideoList] = useState(null);
   const [loading, setLoading] = useState(false);
-  console.log(loading);
-
   const videoList = useSelector(getAllVideos);
-  console.log(videoList);
-
-  //updateVideos={setVideoList}
 
   return (
     <div>

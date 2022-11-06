@@ -3,7 +3,7 @@
 .container {
   position: relative;
   max-width: 1300px;
-  margin: 50px;
+  margin: 50px auto;
   padding: 50px;
   border-radius: 40px;
   background: $color-light;
@@ -26,4 +26,35 @@
 .container::before {
   background: $color-wave-darker;
   clip-path: polygon(30% 0%, 100% 0%, 30% 100%, 0% 100%);
+}
+
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    gap: 100px;
+  }
+
+  .container::after, .container::before {
+    top: 445px;
+    height: 120px;
+    left: 0;
+    width: 100%;
+    clip-path: polygon(0% 0%, 100% 20%, 100% 75%, 0% 30%);
+  }
+
+  .container::before {
+    background: $color-wave-darker;
+    clip-path: polygon(0% 0%, 100% 20%, 100% 100%, 0% 40%);
+  }
+}
+
+@media (max-width: 460px) {
+  .container {
+    padding: 30px;
+  }
+
+  .container::after, .container::before {
+    height: 100px;
+  }
 }

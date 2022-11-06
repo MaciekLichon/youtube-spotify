@@ -21,10 +21,9 @@ export const fetchByKeywords = (keywords, updateLoadingState) => {
         const results = [];
         for (let item of data.items) {
           results.push(item);
-          console.log(item);
+          // console.log(item);
         }
         dispatch(updateYoutube(results));
-        // updateVideoStateList(results);
         updateLoadingState(false);
       })
   }
@@ -38,9 +37,8 @@ export const fetchByVideoLink = (videoId, updateLoadingState) => {
     fetch(`https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&part=snippet&id=${videoId}`)
       .then(res => res.json())
       .then(data => {
-        console.log([data.items[0]]);
+        // console.log([data.items[0]]);
         dispatch(updateYoutube([data.items[0]]));
-        // updateVideoStateList([data.items[0]]);
         updateLoadingState(false);
       })
   }

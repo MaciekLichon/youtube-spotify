@@ -9,10 +9,9 @@ import { decode } from '../../../utils/decodeHTML';
 import Button from '../../features/Button/Button';
 
 
-const Search = ({ token, setTracksData }) => {
+const Search = ({ token, setTracksData, titleToFind }) => {
 
   const dispatch = useDispatch();
-  const titleToFind = useSelector(getCurrentTitle);
 
   const strippedTitle = decode(titleToFind.replace(/(\[).+?(\])/g, '').replace(/(\().+?(\))/g, '')); // removing parts of the title included in brackets
 

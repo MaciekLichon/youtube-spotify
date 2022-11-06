@@ -27,4 +27,28 @@
     }
   }
 
+  &.confirmation {
+    background: $color-loader;
+    width: 280px;
+    height: 60px;
+    overflow: hidden;
+    animation: blink 4s infinite linear;
+  }
+
+}
+
+@keyframes blink {
+  0%, 100% {
+    background: $color-loader;
+  }
+  50% {
+    background: darken($color-loader, 15%);
+  }
+}
+
+
+@media (max-width: 900px) {
+  .button.confirmation {
+    width: 100%;
+  }
 }
