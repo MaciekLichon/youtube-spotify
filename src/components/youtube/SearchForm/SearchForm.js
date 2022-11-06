@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { fetchByKeywords, fetchByVideoLink } from '../../../redux/youtubeRedux';
 
 
-const SearchForm = ({ actionKeywords, actionLink, updateVideos }) => {
+const SearchForm = ({ loadingStatus }) => {
 
   const [phrase, setPhrase] = useState('');
   const dispatch = useDispatch();
@@ -21,9 +21,9 @@ const SearchForm = ({ actionKeywords, actionLink, updateVideos }) => {
 
     if (phrase.includes(youtubeURL)) {
       const videoId = phrase.slice(32);
-      dispatch(fetchByVideoLink(videoId, updateVideos));
+      dispatch(fetchByVideoLink(videoId, loadingStatus));
     } else {
-      dispatch(fetchByKeywords(phrase, updateVideos));
+      dispatch(fetchByKeywords(phrase, loadingStatus));
     }
 
     setPhrase('');

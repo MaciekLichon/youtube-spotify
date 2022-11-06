@@ -10,13 +10,12 @@ nav {
     align-items: center;
 
     .nav_button {
-      text-decoration: none;
+      background: none;
+      border: none;
       color: $color-dark;
       position: relative;
       z-index: 1;
       transition: 0.3s;
-      width: 55px;
-      text-align: center;
     }
 
     .nav_button::after {
@@ -34,13 +33,14 @@ nav {
       transition: 0.3s;
     }
 
-    .nav_button:hover::after {
+    .nav_button:hover::after, .nav_button.active::after{
       opacity: 1;
     }
 
-    .nav_button:hover {
+    .nav_button:hover, .nav_button.active {
       color: $color-light;
     }
+
 
   }
 }

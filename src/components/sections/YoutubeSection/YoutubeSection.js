@@ -2,20 +2,32 @@ import styles from './YoutubeSection.module.scss';
 
 import SearchForm from '../../youtube/SearchForm/SearchForm';
 import VideoDisplay from '../../youtube/VideoDisplay/VideoDisplay';
-import VideoDisplayPlaceholder from '../../youtube/VideoDisplayPlaceholder/VideoDisplayPlaceholder';
+import Loader from '../../features/Loader/Loader';
+import Guide from '../../features/Guide/Guide';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { getAllVideos } from '../../../redux/youtubeRedux';
 
 
-const YoutubeSection = () => {
+const YoutubeSection = ({ activePage }) => {
 
-  const [videoList, setVideoList] = useState(null);
+  // const [videoList, setVideoList] = useState(null);
+  const [loading, setLoading] = useState(false);
+  console.log(loading);
+
+  const videoList = useSelector(getAllVideos);
+  console.log(videoList);
+
+  //updateVideos={setVideoList}
 
   return (
     <div>
-      {videoList && <VideoDisplay data={videoList} />}
-      {!videoList && <VideoDisplayPlaceholder />}
-      <SearchForm updateVideos={setVideoList} />
+      {(activePage === 'Guide') && <Guide />}
+      {(activePage !== 'Guide' && loading) && <Loader requesting={true} />}
+      {(activePage !== 'Guide' && !loading && videoList.length == 0) && <Loader requesting={false} />}
+      {(activePage === 'Home' && !loading && videoList.length > 0) && <VideoDisplay data={videoList} />}
+      <SearchForm loadingStatus={setLoading} />
     </div>
   );
 };

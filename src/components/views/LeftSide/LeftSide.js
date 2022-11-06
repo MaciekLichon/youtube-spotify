@@ -4,13 +4,17 @@ import Header from '../../sections/Header/Header';
 
 import styles from './LeftSide.module.scss';
 
+import { useState } from 'react';
 
 const LeftSide = () => {
+
+  const [activePage, setActivePage] = useState('Home');
+
   return (
     <div className={styles.left_side}>
       <Header />
-      <NavBar />
-      <YoutubeSection />
+      <NavBar activePage={activePage} setActivePage={setActivePage} />
+      <YoutubeSection activePage={activePage} />
     </div>
   );
 };
