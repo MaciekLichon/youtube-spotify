@@ -239,3 +239,17 @@
     display: block;
   }
 }
+
+@media (max-width: 460px) {
+
+  .loader {
+    width: 300px;
+  }
+}
+
+@media (max-width: 375px) {
+
+  .loader {
+    width: 250px;
+  }
+}

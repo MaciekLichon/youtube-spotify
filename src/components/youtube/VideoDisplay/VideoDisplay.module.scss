@@ -51,11 +51,31 @@
     }
 
     .video_details {
-      display: flex;
-      flex-direction: column;
 
       .title {
         width: 300px;
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+
+  .video_section {
+
+    .video_container {
+      height: 200px;
+      width: 250px;
+
+      iframe {
+        height: 200px;
+        width: 250px;
+      }
+    }
+    .video_details {
+
+      .title {
+        width: 250px;
       }
     }
   }
