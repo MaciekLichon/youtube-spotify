@@ -1,31 +1,51 @@
 @import '../../../styles/global.scss';
 
-.container {
-  position: relative;
+.background {
   max-width: 1300px;
-  margin: 50px auto;
-  padding: 50px;
-  border-radius: 40px;
-  background: $color-light;
   position: relative;
-  display: flex;
-  gap: 50px;
-}
 
-.container::after, .container::before {
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 200px;
-  background: $color-wave-lighter;
-  top: 0;
-  left: 410px;
-  clip-path: polygon(30% 0%, 75% 0%, 20% 100%, 0% 100%);
-}
+  .container {
+    position: relative;
+    width: 100%;
+    margin: 50px auto;
+    padding: 50px;
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    gap: 50px;
+    box-shadow: 2px 2px 18px -4px rgba(0, 0, 0, 0.2);
+  }
 
-.container::before {
-  background: $color-wave-darker;
-  clip-path: polygon(30% 0%, 100% 0%, 30% 100%, 0% 100%);
+  .youtube_blob {
+    position: absolute;
+    border-radius: 20% 80% 80% 20% / 50% 50% 50% 50%;
+    height: 300px;
+    width: 300px;
+    background: linear-gradient(45deg,
+      rgba(36,52,85,1) 0%,
+      rgba(115,49,148,1) 40%,
+      rgba(214,78,78,1) 90%);
+    z-index: -1;
+    bottom: -100px;
+    left: -50px;
+    transform: rotate(20deg);
+  }
+
+  .spotify_blob {
+    position: absolute;
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+    background: linear-gradient(-45deg,
+      rgba(36,52,85,1) 0%,
+      rgba(49,109,148,1) 50%,
+      rgba(38,222,129,1) 100%);
+    z-index: -1;
+    top: -150px;
+    right: 30px;
+  }
 }
 
 
@@ -34,27 +54,10 @@
     flex-direction: column;
     gap: 100px;
   }
-
-  .container::after, .container::before {
-    top: 445px;
-    height: 120px;
-    left: 0;
-    width: 100%;
-    clip-path: polygon(0% 0%, 100% 20%, 100% 75%, 0% 30%);
-  }
-
-  .container::before {
-    background: $color-wave-darker;
-    clip-path: polygon(0% 0%, 100% 20%, 100% 100%, 0% 40%);
-  }
 }
 
 @media (max-width: 460px) {
   .container {
     padding: 50px 30px;
-  }
-
-  .container::after, .container::before {
-    height: 100px;
   }
 }

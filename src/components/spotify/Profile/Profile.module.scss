@@ -3,7 +3,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 60px;
+  margin-top: 20px;
   flex-direction: row-reverse;
 
   .profile_img {
@@ -11,6 +11,7 @@
     height: 50px;
     border-radius: 50%;
     margin-left: 10px;
+    border: 1px solid rgba(255,255,255,0.3);
   }
 
   .name, .followers {

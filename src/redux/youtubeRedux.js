@@ -18,13 +18,20 @@ export const fetchByKeywords = (keywords, updateLoadingState) => {
     fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&q=${keywords}&type=video&part=snippet`)
       .then(res => res.json())
       .then(data => {
-        const results = [];
-        for (let item of data.items) {
-          results.push(item);
-          // console.log(item);
+        if (data.items.length > 0) {
+          const results = [];
+          for (let item of data.items) {
+            results.push(item);
+            // console.log(item);
+          }
+          dispatch(updateYoutube(results));
+          updateLoadingState(false);
+          // console.log(data);
         }
-        dispatch(updateYoutube(results));
-        updateLoadingState(false);
+        else {
+          console.log('wrong input, no data found');
+          updateLoadingState(false);
+        }
       })
   }
 };
@@ -37,9 +44,15 @@ export const fetchByVideoLink = (videoId, updateLoadingState) => {
     fetch(`https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&part=snippet&id=${videoId}`)
       .then(res => res.json())
       .then(data => {
-        // console.log([data.items[0]]);
-        dispatch(updateYoutube([data.items[0]]));
-        updateLoadingState(false);
+        if (data.items.length > 0) {
+          // console.log([data.items[0]]);
+          dispatch(updateYoutube([data.items[0]]));
+          updateLoadingState(false);
+        }
+        else {
+          console.log('wrong input, no data found');
+          updateLoadingState(false);
+        }
       })
   }
 };

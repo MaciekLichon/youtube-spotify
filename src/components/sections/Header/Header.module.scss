@@ -2,12 +2,14 @@
 
 .header {
   position: relative;
+  height: 23px;
 
   .title {
     position: absolute;
     font-size: 20px;
     font-weight: 800;
-    
+    letter-spacing: 0.4px;
+
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;

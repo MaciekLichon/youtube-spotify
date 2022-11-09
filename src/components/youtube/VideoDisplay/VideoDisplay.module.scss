@@ -1,8 +1,11 @@
+@import '../../../styles/settings.scss';
 
 .video_section {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: $youtube-pages-width;
+  height: $youtube-pages-height;
 
   .video_container {
     height: 200px;

@@ -16,7 +16,7 @@ const YoutubeSection = ({ activePage }) => {
   const videoList = useSelector(getAllVideos);
 
   return (
-    <div>
+    <div className={styles.youtube_section}>
       {(activePage === 'Guide') && <Guide />}
       {(activePage !== 'Guide' && loading) && <Loader requesting={true} />}
       {(activePage !== 'Guide' && !loading && videoList.length == 0) && <Loader requesting={false} />}

@@ -30,7 +30,7 @@ export const fetchSpotifyTracks = (token, phrase, updateSpotifyTracksState) => {
         // updateSpotifyTracksState(tracks);
         dispatch(updateSpotifyTracks(data.tracks.items[0]));
         updateSpotifyTracksState(data.tracks.items[0]);
-        console.log(data.tracks.items[0]);
+        // console.log(data.tracks.items[0]);
       })
   }
 };

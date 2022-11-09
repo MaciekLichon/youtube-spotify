@@ -3,237 +3,61 @@
 .loader {
   height: $youtube-pages-height;
   width: $youtube-pages-width;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  .hand {
-    width: 225px;
-    height: 140px;
-    display: flex;
-    gap: 4px;
-
-    transform: scale(0.5);
-
-    .finger {
-      flex: 1;
-      position: relative;
-      background: $color-loader;
-      border-radius: 13px;
-
-      .nail {
-        position: absolute;
-        width: 75%;
-        height: 30px;
-        background: $color-light;
-        bottom: 5px;
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: 50% 50% 10px 10px;
-        animation: nail 1.3s infinite;
-      }
-
-      .stripes {
-        position: absolute;
-        height: 15px;
-        width: 60%;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        top: 12px;
-        animation: stripes 1.3s infinite ease-in-out;
-
-        .stripe {
-          background: $color-light;
-          height: 4px;
-        }
-      }
-    }
-
-    .one {
-      height: 100px;
-      top: 20px;
-    }
-
-    .two {
-      height: 125px;
-      top: 10px;
-    }
-
-    .four {
-      height: 115px;
-      top: 15px;
-    }
-  }
-}
-
-@keyframes nail {
-  0%, 50% {
-    bottom: 5px;
-  }
-  25% {
-    bottom: 12px;
-  }
-}
-
-@keyframes stripes {
-  0%, 50% {
-    top: 12px;
-  }
-  25% {
-    top: -5px;
-  }
-}
-
-.one {
-  animation: finger-one 1.3s infinite ease-in-out;
-}
-
-@keyframes finger-one {
-  0%, 50% {
-    height: 100px;
-    top: 20px;
-  }
-  25% {
-    top: 10px;
-    height: 80px;
-  }
-}
-
-.two {
-  animation: finger-two 1.3s infinite ease-in-out;
-  animation-delay: 0.1s;
-}
-.hand .finger.two .nail {
-  animation-delay: 0.1s;
-}
-.hand .finger.two .stripes {
-  animation-delay: 0.1s;
-}
-
-@keyframes finger-two {
-  0%, 45% {
-    height: 125px;
-    top: 10px;
-  }
-  22% {
-    top: 5px;
-    height: 100px;
-  }
-}
-
-.three {
-  animation: finger-three 1.3s infinite ease-in-out;
-  animation-delay: 0.2s;
-}
-.hand .finger.three .nail {
-  animation-delay: 0.2s;
-}
-.hand .finger.three .stripes {
-  animation-delay: 0.2s;
-}
-
-@keyframes finger-three {
-  0%, 40% {
-    height: 140px;
-  }
-  20% {
-    height: 120px;
-  }
-}
-
-.four {
-  animation: finger-four 1.3s infinite ease-in-out;
-  animation-delay: 0.3s;
-}
-.hand .finger.four .nail {
-  animation-delay: 0.3s;
-}
-.hand .finger.four .stripes {
-  animation-delay: 0.3s;
-}
-
-@keyframes finger-four {
-  0%, 38% {
-    height: 115px;
-    top: 15px;
-  }
-  20% {
-    top: 8px;
-    height: 100px;
-  }
-}
-
-
-.hand .thumb {
-  flex: 1.25;
   position: relative;
-  overflow: hidden;
 
-  .container {
-    width: 100%;
-    height: 100%;
+  .ball {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: $color-light;
     position: absolute;
-    top: 0;
-    left: 0;
-    transform-origin: left;
-    animation: thumb 1.3s infinite ease-in-out;
-    animation-delay: 0.4s;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: slide 3s infinite ease-in-out;
+    opacity: 0;
+  }
 
-    .piece_one {
-      background: $color-loader;
-      position: absolute;
-      height: 35px;
-      width: 120%;
-      right: 0;
-      border-radius: 0 15px 40px 0;
-      top: 60px;
-    }
-
-    .piece_two {
-      background: $color-loader;
-      position: absolute;
-      height: 20px;
-      width: 50%;
-      left: 0;
-      top: 40px;
-    }
-
-    .piece_three {
-      background: $color-light;
-      position: absolute;
-      height: 40px;
-      width: 105%;
-      right: 0;
-      border-radius: 0 0 0 50%;
-      top: 20px;
+  @for $i from 1 to 5 {
+    .ball:nth-child(#{$i}) {
+      animation-delay: 0.4s * $i;
     }
   }
 }
 
-
-@keyframes thumb {
-  0%, 40% {
-    top: 0;
-    left: 0;
-    transform: rotate(0);
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
   }
-  18% {
-    top: -10px;
-    left: -5px;
-    transform: rotate(-15deg);
+  15% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.7;
+    transform: translateX($youtube-pages-width/2);
+  }
+  60% {
+    opacity: 0.7;
+  }
+  85% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX($youtube-pages-width);
   }
 }
 
 .loader {
   .message {
-    color: $color-loader;
+    position: absolute;
+    color: rgba(255, 255, 255, 0.6);
     font-size: 14px;
     display: none;
     margin: 0;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .message.visible {
     display: block;

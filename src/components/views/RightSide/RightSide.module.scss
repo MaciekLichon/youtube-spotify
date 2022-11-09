@@ -1,17 +1,15 @@
 
 .right_side {
   position: relative;
-  width: 350px;
+  width: 310px;
 }
 
 @media (max-width: 460px) {
   .right_side {
-    width: 300px;
   }
 }
 
 @media (max-width: 375px) {
   .right_side {
-    width: 250px;
   }
 }

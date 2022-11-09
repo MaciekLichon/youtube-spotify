@@ -1,8 +1,7 @@
 
 .auth {
-  position: absolute;
-  right: 0;
-  top: 0;
+  display: flex;
+  justify-content: flex-end;
 
   .login {
     width: 150px;
@@ -11,6 +10,6 @@
 
 @media (max-width: 900px) {
   .auth {
-    left: 0;
+    justify-content: flex-start;
   }
 }

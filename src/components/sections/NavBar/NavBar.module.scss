@@ -1,7 +1,7 @@
 @import '../../../styles/settings.scss';
 
 nav {
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 20px;
 
   .options {
@@ -10,35 +10,19 @@ nav {
     align-items: center;
 
     .nav_button {
-      background: none;
+      background: rgba(255, 255, 255, 0.1);
       border: none;
       color: $color-dark;
       position: relative;
       z-index: 1;
       transition: 0.3s;
-    }
-
-    .nav_button::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 120%;
-      height: 120%;
-      background: $color-dark;
+      width: 100px;
       border-radius: 10px;
-      z-index: -1;
-      opacity: 0;
-      transition: 0.3s;
-    }
-
-    .nav_button:hover::after, .nav_button.active::after{
-      opacity: 1;
     }
 
     .nav_button:hover, .nav_button.active {
       color: $color-light;
+      background: rgba(47, 53, 66, 0.5);
     }
 
 

@@ -20,9 +20,13 @@ export const fetchPlaylists = (token, updateSpotifyPlaylistsState) => {
     fetch(`https://api.spotify.com/v1/me/playlists?limit=50`, options)
       .then(res => res.json())
       .then(data => {
-        dispatch(updateSpotifyPlaylists(data.items));
-        updateSpotifyPlaylistsState(data.items);
-        // console.log(data.items);
+        if (data.items.length > 0) {
+          dispatch(updateSpotifyPlaylists(data.items));
+          updateSpotifyPlaylistsState(data.items);
+        }
+        else {
+          console.log('no playlists available');
+        }
       })
   }
 };

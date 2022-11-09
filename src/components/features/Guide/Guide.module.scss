@@ -3,4 +3,25 @@
 .guide {
   width: $youtube-pages-width;
   height: $youtube-pages-height;
+  display: flex;
+  flex-direction: column;
+
+  .preview_info {
+    font-size: 12px;
+    padding-left: 15px;
+    margin: 0;
+  }
+
+}
+
+@media (max-width: 460px) {
+  .guide {
+    width: 300px;
+  }
+}
+
+@media (max-width: 375px) {
+  .guide {
+    width: 250px;
+  }
 }
