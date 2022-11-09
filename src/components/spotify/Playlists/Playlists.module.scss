@@ -29,3 +29,12 @@
     }
   }
 }
+
+
+@media (max-width: 350px) {
+  .playlists {
+    .menu {
+      max-width: 150px;
+    }
+  }
+}

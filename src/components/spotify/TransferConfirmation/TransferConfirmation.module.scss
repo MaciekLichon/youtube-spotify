@@ -1,22 +1,9 @@
 
 .confirmation_container {
-  text-align: right;
   margin-top: 10px;
-  display: flex;
-  justify-content: flex-end;
+  width: 100%;
 
   .confirmation_button {
-    width: 290px;
-  }
-}
-
-@media (max-width: 900px) {
-  .confirmation_container {
-    text-align: left;
-    justify-content: flex-start;
-
-    .confirmation_button {
-      width: 100%;
-    }
+    width: 100%;
   }
 }

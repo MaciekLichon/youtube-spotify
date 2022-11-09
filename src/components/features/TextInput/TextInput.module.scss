@@ -15,3 +15,9 @@
   color: $color-light;
   font-weight: 300;
 }
+
+@media (max-width: 350px) {
+  .input {
+    width: 165px;
+  }
+}

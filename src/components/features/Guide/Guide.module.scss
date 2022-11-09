@@ -14,14 +14,15 @@
 
 }
 
-@media (max-width: 460px) {
+@media (max-width: 450px) {
   .guide {
-    width: 300px;
+    width: 250px;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 350px) {
   .guide {
-    width: 250px;
+    width: 200px;
+    font-size: 14px;
   }
 }

@@ -12,7 +12,7 @@ const Loader = ({ requesting }) => {
       <span className={styles.ball}></span>
       <span className={styles.ball}></span>
 
-      <p className={clsx(styles.message, !requesting && styles.visible)}>Enter phrase or link below</p>
+      <p className={clsx(styles.message, !requesting && styles.visible)}>Enter keywords or link below</p>
       <p className={clsx(styles.message, requesting && styles.visible)}>Downloading...</p>
 
     </div>

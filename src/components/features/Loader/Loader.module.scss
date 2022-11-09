@@ -58,20 +58,22 @@
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
   }
   .message.visible {
     display: block;
   }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 550px) {
 
   .loader {
     width: 300px;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 450px) {
 
   .loader {
     width: 250px;

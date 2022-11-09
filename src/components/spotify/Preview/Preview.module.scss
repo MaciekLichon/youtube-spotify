@@ -23,6 +23,7 @@
       border-radius: 50%;
       margin-left: 10px;
       background: $color-loader;
+      border: 1px solid rgba(255,255,255,0.3);
     }
 
     .name, .followers {
@@ -52,6 +53,7 @@
 
     .menu {
       max-width: 160px;
+      background-color: rgba(255, 255, 255, 0.1);
     }
   }
 
@@ -69,7 +71,6 @@
       gap: 10px;
       align-items: center;
       justify-content: flex-end;
-      overflow: hidden;
 
       .title {
         font-size: 14px;
@@ -88,10 +89,9 @@
 
   .track_player {
     display: flex;
-    justify-content: flex-end;
 
     iframe {
-      width: 250px;
+      width: 100%;
       height: 80px;
     }
   }
@@ -99,13 +99,11 @@
   // CONFIRMATION BUTTON
 
   .confirmation_container {
-    text-align: right;
     margin-top: 10px;
-    display: flex;
-    justify-content: flex-end;
+    width: 100%;
 
     .confirmation_button {
-      width: 290px;
+      width: 100%;
     }
   }
 
@@ -113,57 +111,46 @@
 
 @media (max-width: 900px) {
 
-  .preview {
-    align-items: flex-start;
+  .profile_data {
+    flex-direction: row;
+    gap: 10px;
 
-    .profile_data {
-      flex-direction: row;
-      gap: 10px;
-
-      .profile_img {
-        margin-left: 0;
-      }
-
-      .name, .followers {
-        margin: 0;
-        text-align: left;
-      }
+    .profile_img {
+      margin-left: 0;
     }
 
-
-    .playlists {
+    .name, .followers {
+      margin: 0;
       text-align: left;
-      justify-content: flex-start;
-
-      .menu {
-        max-width: 195px;
-      }
     }
+  }
 
 
-    .spotify_search {
-      text-align: left;
-      justify-content: flex-start;
+  .playlists {
+    text-align: left;
+    justify-content: flex-start;
 
-      .selector {
-        flex-direction: row-reverse;
-        width: 250px;
-      }
+    .menu {
+      max-width: 195px;
     }
+  }
 
 
-    .track_player {
-      justify-content: flex-start;
+  .spotify_search {
+    text-align: left;
+    justify-content: flex-start;
+
+    .selector {
+      flex-direction: row-reverse;
+      width: 100%;
     }
+  }
+}
 
-
-    .confirmation_container {
-      text-align: left;
-      justify-content: flex-start;
-
-      .confirmation_button {
-        width: 250px;
-      }
+@media (max-width: 350px) {
+  .playlists {
+    .menu {
+      max-width: 150px;
     }
   }
 }

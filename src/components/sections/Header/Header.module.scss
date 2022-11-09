@@ -46,3 +46,12 @@
 
   }
 }
+
+@media (max-width: 450px) {
+  .header .title {
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    white-space: nowrap;
+  }
+}

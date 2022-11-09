@@ -4,12 +4,8 @@
   width: 310px;
 }
 
-@media (max-width: 460px) {
+@media (max-width: 900px) {
   .right_side {
-  }
-}
-
-@media (max-width: 375px) {
-  .right_side {
+    width: auto;
   }
 }
