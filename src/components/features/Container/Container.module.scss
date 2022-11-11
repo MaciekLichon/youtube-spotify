@@ -1,12 +1,10 @@
 @import '../../../styles/global.scss';
 
 .background {
-  max-width: 1300px;
   position: relative;
 
   .container {
     position: relative;
-    width: 100%;
     padding: 50px;
     border-radius: 40px;
     background: rgba(255, 255, 255, 0.2);
@@ -50,7 +48,6 @@
 
 @media (max-width: 900px) {
   .background {
-    top: 50px;
 
     .container {
       flex-direction: column;

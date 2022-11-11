@@ -14,6 +14,12 @@
 
 }
 
+@media (max-width: 550px) {
+  .guide {
+    width: 300px;
+  }
+}
+
 @media (max-width: 450px) {
   .guide {
     width: 250px;

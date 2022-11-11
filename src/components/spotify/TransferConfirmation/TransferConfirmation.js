@@ -58,7 +58,7 @@ const TransferConfirmation = ({ currentPlaylist, tracksData, token }) => {
       </div>
       {showPopup &&
         <Popup showPopup={showPopup} setShowPopup={setShowPopup}>
-          Something went wrong.
+          Something went wrong. Log in again.
         </Popup>
       }
     </>
