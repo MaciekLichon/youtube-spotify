@@ -2,8 +2,15 @@ import styles from './Preview.module.scss';
 
 import Form from 'react-bootstrap/Form';
 import Button from '../../features/Button/Button';
+import Popup from '../../features/Popup/Popup';
+
+import { useState } from 'react';
+
 
 const Preview = () => {
+
+  const [showPopup, setShowPopup] = useState(false);
+  const handleClick = () => setShowPopup(true);
 
   return (
     <div className={styles.preview}>
@@ -27,8 +34,8 @@ const Preview = () => {
 
       <div className={styles.spotify_search}>
         <div className={styles.selector}>
-          <p className={styles.title}>Sample - Rick Dawn</p>
-          <Button type="spotify">
+          <p className={styles.title}>Liu, Hollow Coves and Woak - Coastline</p>
+          <Button type="spotify" action={handleClick}>
             <span className="fa fa-spotify"></span>
           </Button>
         </div>
@@ -36,7 +43,7 @@ const Preview = () => {
 
       <div className={styles.track_player}>
         <iframe
-          src={`https://open.spotify.com/embed/track/6xtcFXSo8H9BZN637BMVKS?utm_source=generator`}
+          src={`https://open.spotify.com/embed/track/10APf4gHZ7oLusw6oBteLQ?utm_source=generator`}
           frameBorder="0"
           allowFullScreen=""
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -46,11 +53,17 @@ const Preview = () => {
 
       <div className={styles.confirmation_container}>
         <div className={styles.confirmation_button}>
-          <Button type="confirmation">
+          <Button type="confirmation" action={handleClick}>
             Save it!
           </Button>
         </div>
       </div>
+
+      {showPopup &&
+        <Popup showPopup={showPopup} setShowPopup={setShowPopup}>
+          Log in to Spotify to make it work.
+        </Popup>
+      }
 
     </div>
   );

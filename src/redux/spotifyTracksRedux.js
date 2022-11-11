@@ -9,7 +9,7 @@ const UPDATE_SPOTIFY_TRACKS = createActionName('UPDATE_SPOTIFY_TRACKS');
 // action creators
 export const updateSpotifyTracks = payload => ({ type: UPDATE_SPOTIFY_TRACKS, payload });
 
-export const fetchSpotifyTracks = (token, phrase, updateSpotifyTracksState) => {
+export const fetchSpotifyTracks = (token, phrase, updateSpotifyTracksState, updatePopupStatus, updateErrorStatus) => {
   return (dispatch) => {
     const options = {
       headers: {
@@ -17,21 +17,27 @@ export const fetchSpotifyTracks = (token, phrase, updateSpotifyTracksState) => {
       },
     }
     fetch(`https://api.spotify.com/v1/search?q=${phrase}&type=track&include_external=audio`, options)
-      .then(res => res.json())
-      .then(data => {
-        // const tracksData = data.tracks.items;
-        // let tracks = [];
-        // if (tracksData.length > 3) {
-        //   tracks = tracksData.slice(0, 3);
-        // } else {
-        //   tracks = tracksData;
-        // }
-        // dispatch(updateSpotifyTracks(tracks));
-        // updateSpotifyTracksState(tracks);
-        dispatch(updateSpotifyTracks(data.tracks.items[0]));
-        updateSpotifyTracksState(data.tracks.items[0]);
-        // console.log(data.tracks.items[0]);
+      // .then(res => res.json())
+      // .then(data => {
+      //   dispatch(updateSpotifyTracks(data.tracks.items[0]));
+      //   updateSpotifyTracksState(data.tracks.items[0]);
+      // })
+      .then(res => {
+        if (res.status === 200) {
+          return res.json()
+            .then(data => {
+              dispatch(updateSpotifyTracks(data.tracks.items[0]));
+              updateSpotifyTracksState(data.tracks.items[0]);
+            });
+        } else {
+          updatePopupStatus(true);
+          updateErrorStatus('response');
+        }
       })
+      .catch(rejected => {
+        updatePopupStatus(true);
+        updateErrorStatus('track');
+      });
   }
 };
 
@@ -39,7 +45,6 @@ export const fetchSpotifyTracks = (token, phrase, updateSpotifyTracksState) => {
 const spotifyTracksReducer = (statePart = [], action) => {
   switch(action.type) {
     case UPDATE_SPOTIFY_TRACKS:
-      // return [...action.payload];
       return action.payload;
     default:
       return statePart;

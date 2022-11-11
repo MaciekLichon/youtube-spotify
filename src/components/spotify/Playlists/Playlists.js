@@ -4,8 +4,8 @@ import { useEffect } from 'react';
 
 import Form from 'react-bootstrap/Form';
 
-const Playlists = ({ userPlaylists, setCurrentPlaylist }) => {
 
+const Playlists = ({ userPlaylists, setCurrentPlaylist }) => {
 
   useEffect(() => {
     setCurrentPlaylist(userPlaylists[0].id);

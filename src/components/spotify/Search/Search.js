@@ -9,14 +9,14 @@ import { decode } from '../../../utils/decodeHTML';
 import Button from '../../features/Button/Button';
 
 
-const Search = ({ token, setTracksData, titleToFind }) => {
+const Search = ({ token, setTracksData, titleToFind, setShowPopup, setErrorReason }) => {
 
   const dispatch = useDispatch();
 
   const strippedTitle = decode(titleToFind.replace(/(\[).+?(\])/g, '').replace(/(\().+?(\))/g, '')); // removing parts of the title included in brackets
 
   const handleClick = () => {
-    dispatch(fetchSpotifyTracks(token, strippedTitle, setTracksData));
+    dispatch(fetchSpotifyTracks(token, strippedTitle, setTracksData, setShowPopup, setErrorReason));
   };
 
   return (

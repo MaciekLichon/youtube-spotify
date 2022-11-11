@@ -1,0 +1,57 @@
+@import '../../../styles/global.scss';
+
+
+.modal-backdrop {
+  background-color: $color-light !important;
+}
+
+.modal-backdrop.show {
+  opacity: 0.3 !important;
+}
+
+.modal-content {
+  background-color: rgba(255, 0, 0, 0.2) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 2px solid rgba(255, 255, 255, 0.7) !important;
+  box-shadow: 2px 2px 18px -4px rgba(0, 0, 0, 0.3) !important;
+
+  justify-content: center;
+  align-items: center;
+
+  .icon {
+    position: absolute;
+    left: 50%;
+    top: -55px;
+    transform: translateX(-50%);
+    font-size: 90px;
+  }
+
+  .icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    box-shadow: 2px 2px 18px -4px rgba(0, 0, 0, 0.6);
+    z-index: -1;
+  }
+
+  .modal-body {
+    padding-top: 40px;
+  }
+
+  .modal-footer {
+    button {
+      background-color: rgba(0,0,0,0.2);
+      border: 0;
+    }
+
+    button:hover {
+      background-color: rgba(0,0,0,0.4);
+    }
+  }
+
+}

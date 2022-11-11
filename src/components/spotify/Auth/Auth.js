@@ -11,7 +11,7 @@ import { updateSpotifyUser, fetchUserData } from '../../../redux/spotifyUserRedu
 import { updateSpotifyPlaylists, fetchPlaylists } from '../../../redux/spotifyPlaylistsRedux';
 
 
-const Auth = ({ token, setToken, setUserData, setUserPlaylists, setCurrentPlaylist, setTracksData }) => {
+const Auth = ({ token, setToken, setUserData, setUserPlaylists, setCurrentPlaylist, setTracksData, setShowPopup, setErrorReason }) => {
 
   const dispatch = useDispatch();
 
@@ -35,7 +35,7 @@ const Auth = ({ token, setToken, setUserData, setUserPlaylists, setCurrentPlayli
       setToken(newToken);
       dispatch(updateSpotifyToken(newToken));
       dispatch(fetchUserData(newToken, setUserData));
-      dispatch(fetchPlaylists(newToken, setUserPlaylists));
+      dispatch(fetchPlaylists(newToken, setUserPlaylists, setShowPopup, setErrorReason));
 
       window.location.hash = '';
     }

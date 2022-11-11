@@ -10,7 +10,7 @@ const UPDATE_YOUTUBE = createActionName('UPDATE_YOUTUBE');
 // action creators
 export const updateYoutube = payload => ({ type: UPDATE_YOUTUBE, payload });
 
-export const fetchByKeywords = (keywords, updateLoadingState) => {
+export const fetchByKeywords = (keywords, updateLoadingState, updatePopupStatus) => {
 
   updateLoadingState(true);
 
@@ -29,14 +29,15 @@ export const fetchByKeywords = (keywords, updateLoadingState) => {
           // console.log(data);
         }
         else {
-          console.log('wrong input, no data found');
+          // console.log('wrong input, no data found');
           updateLoadingState(false);
+          updatePopupStatus(true);
         }
       })
   }
 };
 
-export const fetchByVideoLink = (videoId, updateLoadingState) => {
+export const fetchByVideoLink = (videoId, updateLoadingState, updatePopupStatus) => {
 
   updateLoadingState(true);
 
@@ -50,8 +51,9 @@ export const fetchByVideoLink = (videoId, updateLoadingState) => {
           updateLoadingState(false);
         }
         else {
-          console.log('wrong input, no data found');
+          // console.log('wrong input, no data found');
           updateLoadingState(false);
+          updatePopupStatus(true);
         }
       })
   }
