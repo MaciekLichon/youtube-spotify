@@ -36,6 +36,11 @@
     animation: blink 4s infinite linear;
   }
 
+  &.confirmation.saved {
+    background: darken($color-spotify, 10%);
+    animation: none;
+  }
+
 }
 
 @keyframes blink {

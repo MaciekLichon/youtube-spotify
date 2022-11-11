@@ -8,7 +8,8 @@ const Button = props => {
         styles.button,
         props.type === "youtube" && styles.youtube,
         props.type === "spotify" && styles.spotify,
-        props.type === "confirmation" && styles.confirmation)
+        props.type === "confirmation" && styles.confirmation,
+        props.saved && styles.saved)
     }>
       {props.children}
     </button>
