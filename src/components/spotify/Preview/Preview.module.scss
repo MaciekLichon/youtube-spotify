@@ -3,6 +3,7 @@
 .preview {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
   flex-direction: column;
   filter: grayscale(100%);
   color: $color-preview;
@@ -11,13 +12,16 @@
 
   .profile_data {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     margin-top: 20px;
+    flex-direction: row-reverse;
 
     .profile_img {
       width: 50px;
       height: 50px;
       border-radius: 50%;
+      margin-left: 10px;
       background: $color-loader;
       border: 1px solid rgba(255,255,255,0.3);
     }
@@ -38,6 +42,7 @@
     text-align: right;
     margin-top: 10px;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
     gap: 5px;
 
@@ -57,6 +62,8 @@
 
   .spotify_search {
     display: flex;
+    text-align: right;
+    justify-content: flex-end;
 
     .selector {
       display: flex;
@@ -64,6 +71,7 @@
       height: 80px;
       gap: 10px;
       align-items: center;
+      justify-content: flex-end;
 
       .title {
         font-size: 14px;
@@ -104,8 +112,50 @@
 
 @media (max-width: 900px) {
 
+  .preview {
+    align-items: flex-start;
+
+    .profile_data {
+      flex-direction: row;
+      gap: 10px;
+
+      .profile_img {
+        margin-left: 0;
+      }
+
+      .name, .followers {
+        margin: 0;
+        text-align: left;
+      }
+    }
+
+
+    .playlists {
+      text-align: left;
+      justify-content: flex-start;
+
+      .menu {
+        max-width: 195px;
+      }
+    }
+
+
+    .spotify_search {
+      text-align: left;
+      justify-content: flex-start;
+
+      .selector {
+        flex-direction: row-reverse;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
   .profile_data {
     flex-direction: row;
+    align-items: flex-start;
     gap: 10px;
 
     .profile_img {
@@ -118,17 +168,6 @@
     }
   }
 
-
-  .playlists {
-    text-align: left;
-    justify-content: flex-start;
-
-    .menu {
-      max-width: 195px;
-    }
-  }
-
-
   .spotify_search {
     text-align: left;
     justify-content: flex-start;
@@ -136,6 +175,15 @@
     .selector {
       flex-direction: row-reverse;
       width: 100%;
+    }
+  }
+
+  .playlists {
+    text-align: left;
+    justify-content: flex-start;
+
+    .menu {
+      max-width: 195px;
     }
   }
 }
