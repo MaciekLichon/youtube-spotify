@@ -16,7 +16,7 @@ const Auth = ({ token, setToken, setUserData, setUserPlaylists, setCurrentPlayli
   const dispatch = useDispatch();
 
   const CLIENT_ID = '8f83a58e02ac41d5852ba8a881616bac';
-  const REDIRECT_URI = 'http://localhost:3000/';
+  const REDIRECT_URI = 'https://macieklichon.github.io/youtube-spotify/';
   const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
   const RESPONSE_TYPE = 'token';
   const SCOPES = 'playlist-modify-private playlist-modify-public playlist-read-private playlist-read-collaborative';
