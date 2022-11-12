@@ -12,7 +12,11 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(45deg, $color-background-darker 0%, $color-background-lighter 50%, $color-background-darker 120%);
+  background-color: $color-background-lighter;
+  background: -webkit-linear-gradient(bottom left, $color-background-darker 0%, $color-background-lighter 50%, $color-background-darker 120%);
+  background: -o-linear-gradient(bottom left, $color-background-darker 0%, $color-background-lighter 50%, $color-background-darker 120%);
+  background: linear-gradient(to top right, $color-background-darker 0%, $color-background-lighter 50%, $color-background-darker 120%);
+  background-image: -webkit-linear-gradient(bottom left, $color-background-darker 0%, $color-background-lighter 50%, $color-background-darker 120%);
   font-family: $font-text;
   font-size: $base-size;
   font-weight: $base-weight;

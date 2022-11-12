@@ -6,7 +6,7 @@ It was built with React (including Redux and Bootstrap) and it utilizes Youtube 
 
 ## Getting started
 
-1. Go to ...
+1. Go to https://macieklichon.github.io/youtube-spotify/
 
 2. Log in to Spotify
 
