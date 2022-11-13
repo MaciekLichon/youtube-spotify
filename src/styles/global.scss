@@ -13,9 +13,9 @@ body {
   margin: 0;
   padding: 0;
   background-color: $color-background-lighter;
-  background: -webkit-linear-gradient(bottom left, $color-background-darker 0%, $color-background-lighter 50%, $color-background-darker 120%);
-  background: -o-linear-gradient(bottom left, $color-background-darker 0%, $color-background-lighter 50%, $color-background-darker 120%);
-  background: linear-gradient(to top right, $color-background-darker 0%, $color-background-lighter 50%, $color-background-darker 120%);
+  // background: -webkit-linear-gradient(bottom left, $color-background-darker 0%, $color-background-lighter 50%, $color-background-darker 120%);
+  // background: -o-linear-gradient(bottom left, $color-background-darker 0%, $color-background-lighter 50%, $color-background-darker 120%);
+  // background: linear-gradient(to top right, $color-background-darker 0%, $color-background-lighter 50%, $color-background-darker 120%);
   background-image: -webkit-linear-gradient(bottom left, $color-background-darker 0%, $color-background-lighter 50%, $color-background-darker 120%);
   font-family: $font-text;
   font-size: $base-size;
@@ -24,8 +24,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
